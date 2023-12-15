@@ -2,15 +2,26 @@
 Shows YouTubeMusic as Discord Rich Presence
 
 ## Screenshots
-![alt text](https://github.com/DevDenisYT/YouTubeMusicDiscordRichPresence/blob/master/Anmerkung%202020-07-24%20001309.png?raw=true)
-![alt text](https://github.com/DevDenisYT/YouTubeMusicDiscordRichPresence/blob/master/Anmerkung%202020-07-24%20001239.png?raw=true)
+Playing: \
+<img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/RichPresenceExamplePlaying.png" alt="alt text" width="300"/> \
+Paused: \
+<img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/RichPresenceExamplePaused.png" alt="alt text" width="300"/> 
+
+![alt text](https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/TerminalExample.png)
 
 ### Step 1:
 Download the Repo & install the dependencies (express & discord-rich-presence) with npm
+When you have downloaded the repo, first type in your terminal of choice: npm install
+This will install all the needed dependencies first.
 
 ### Step 2:
-Set your ID from your Discord Application (You can also add pictures in the discord application settings!) in index.js 
-**const client = require('discord-rich-presence')('YOUR ID HERE')**
+Set your ID from your Discord Application
+**const client = require('discord-rich-presence')('YOUR ID HERE')**\
+**If you haven't created a discord application you can do so [here](https://discord.com/developers/applications)** <br>
+<img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/CreateApplication.png" alt="alt text" width="400"/> \
+You can create an application by pressing, "New application" on the top right. Then naming the application, "Youtube music".
+Then you can get your application ID by copying it, located in general information.\
+<img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/ApplicationId.png" alt="alt text" width="500"/> 
 
 ### Step 3
 Enable in Chrome at Extensions the developer mode and load the Extension from the dir named **ChromeExtension**
@@ -22,7 +33,7 @@ Open a command promt in the directory where the repo files are and type **npm st
 Have fun :3
 
 
-
+___
 ### What does this fork change?
 This fork adds the abillity to play/pause your track and have it show up on discord that you paused it.
 This fork also adds support for loading song images in the presence.
