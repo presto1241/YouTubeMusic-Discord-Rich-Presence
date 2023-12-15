@@ -1,5 +1,5 @@
 //Discord client connection
-const client = require('discord-rich-presence')('Enter appId here!');
+const client = require('discord-rich-presence')('Enter AppID here!');
 
 //Plugin reference
 const express = require('express');
@@ -73,7 +73,7 @@ app.post("/", (request, response) => {
     playing = false;
     song = content.song;
 
-    updateVrchat(content.song, content.artist);
+    //updateVrchat(content.song, content.artist);
 
     console.log(`\n\n| Playing now ${content.song} by ${content.artist.split("\n • \n").join("\n| ")}\n| Time: ${content.timeMax.replace(' ', '')}`);
   }
@@ -130,7 +130,7 @@ function updateDiscord(song,artist,timeNow,timeMax,songImg,playing) {
   //////
   //Write the current song and artist to a text file "Song-Output.txt" located in the index.js folder in Text_Output/
 	//////
-  fs.writeFile( process.cwd() + "/Text_Output/Song-Output.txt", `${song} - ${artist.split("•")[0]}`, function (err){
+  fs.writeFile( process.cwd() + "/Song-Output.txt", `${song} - ${artist.split("•")[0]}`, function (err){
 		if (err) {
 			return console.log(err);
     }
