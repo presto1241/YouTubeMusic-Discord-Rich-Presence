@@ -8,6 +8,7 @@ Paused: \
 <img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/RichPresenceExamplePaused.png" alt="alt text" width="300"/> 
 
 ![alt text](https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/TerminalExample.png)
+Lol just realized the screenshot has a bug... All my fellas is made by frizk not the other person. I'll fix that if I come across it again...
 
 ### Step 1:
 Download the Repo & install the dependencies (express & discord-rich-presence) with npm
