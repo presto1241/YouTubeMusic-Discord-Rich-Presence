@@ -20,3 +20,9 @@ Open a command promt in the directory where the repo files are and type **npm st
 
 ### Step 5
 Have fun :3
+
+
+
+### What does this fork change?
+This fork adds the abillity to play/pause your track and have it show up on discord that you paused it.
+This fork also adds support for loading song images in the presence.
