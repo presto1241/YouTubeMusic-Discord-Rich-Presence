@@ -62,7 +62,7 @@ app.post("/", (request, response) => {
   //Check if there is anything for song info since there has to be.
   //////
   //if(content.song == undefined || content.song == null || content.timeMax.replace(' ', '') == "0:00" || content.timeMax.replace(' ', '') == "") { return; }
-  
+  if (content.song == "Waiting for track...") return;
 
   //////
   //Check if the current song is already being displayed by the script.
