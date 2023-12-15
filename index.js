@@ -94,7 +94,7 @@ app.post("/", (request, response) => {
 
 function updateDiscord(song,artist,timeNow,timeMax,songImg,playing) {
 	
-  image = !playing ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bGDKsJ1uem8wUSsh1nxX5MG-qrqWAmU9qULlyLM&s" : "https://github.com/presto1241/YouTubeMusic-Discord-Rich-Presence/blob/master/Assets/YTIconPause.png";
+  image = !playing ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bGDKsJ1uem8wUSsh1nxX5MG-qrqWAmU9qULlyLM&s" : "https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/Assets/YTIconPause.png";
 
   //////
   //Update discord presence to display current song information
