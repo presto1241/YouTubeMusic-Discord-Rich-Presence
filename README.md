@@ -1,5 +1,5 @@
 # YouTubeMusic RichPresence
-Shows YouTubeMusic as Discord Rich Presence
+Shows YouTubeMusic as Rich Presence
 
 ## Screenshots
 Playing: \
