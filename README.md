@@ -1,4 +1,4 @@
-# YouTubeMusic DiscordRichPresence
+# YouTubeMusic RichPresence
 Shows YouTubeMusic as Discord Rich Presence
 
 ## Screenshots
