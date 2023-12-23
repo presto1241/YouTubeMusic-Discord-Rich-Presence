@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Youtube Music Presence App Configuration</title>
+
+        <script src="index.js"></script> 
+    </head>
+
+    <style>
+
+        @font-face {
+          font-family: 'Barlow';
+          font-style: normal;
+          font-weight: 300;
+          font-display: swap;
+          src: url(https://fonts.gstatic.com/s/barlow/v12/7cHqv4kjgoGqM7E3p-ks51os.woff2) format('woff2');
+          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+    </style>
+
+    <body>
+        <!-- Everything is in the div for no particular reason other than its easier to offset stuff for. -->
+        <div id="backgroundBox" class="MainUI">
+
+            <h1 id="titleText">YT Music Presence Configuration</h1>
+
+            <div class="ErrorMsg">
+
+                <span style = "margin-left: 10px; font-size: larger;">Error: Failed to connect to the main index.js script! Please refresh this page and try again...</span>
+                <button style="float: right; background-color: rgb(39, 39, 39); color: white; margin-right: 10px; border: none; border-radius: 5px; padding-bottom: 2px;" class="ErrorButton">X</button>
+
+            </div>
+
+
+            <div class="toolbar">
+                    <span class = "Game-Editing-Status">Currently editing presence for Discord:</span>
+                    <span class = "dropdown">
+                        <button class="dropbtn">Select Game</button>
+                        <div class="dropdown-content">
+                            <a id="optDiscord">Discord</a>
+                            <a id="optVRChat">VRChat</a>
+                        </div>
+                    </span> 
+                    <button class="Theme-Button">Light mode</button>
+                    <button class="Status-Enable-Button">Enable status</button>
+                    <button class="Status-Disable-Button">Disable status</button>
+                    <button class="Save-Button">Save changes</button>
+                    <button class="AppID-Button">Change AppID</button>
+            </div>
+
+            <div class="Preview">
+                <div class="DiscordPreview">
+                    <div class="DiscordBigimg">
+                        <div class="DiscordSmallimg"></div>
+                        <div class="DiscordPreviewTextGroup">
+                            <span style="text-align: left; font-size: x-large; height: fit-content; display: block;">Youtube Music</span>
+                            <span style="text-align: left; height: fit-content; display: block;" class="DiscordSong">Waiting for track...</span>
+                            <span style="text-align: left; height: fit-content; display: block;" class="DiscordArtist">No artist...</span>
+                            <span style="text-align: left; height: fit-content; display: block;" class="DiscordTime">0:00 left</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="VRChatPreview">
+                    <span id="VRCPreviewinnertext">Not listening to anyone D:</span>
+                </div>
+            </div>
+            <span id="previewBar">Preview</span>
+
+            <div class="config">
+                <div class="DiscordConfig">
+
+                    <div class="configinputarray vrchatconfigelement">
+
+                        <div>
+                            <div style = "text-align: center; font-size: larger; margin-bottom: 10px;">Song info</div>
+                            <textarea type="text" id="inputbox" rows="1" class="DiscordSongInfoTextarea"></textarea>
+                        </div>
+
+                        <div>
+                            <div style = "text-align: center; font-size: larger; margin-bottom: 10px;">Artist/Subsong info</div>
+                            <textarea type="text" id="inputbox" rows="1" class="DiscordSongArtistTextarea"></textarea>
+                        </div>
+
+                        <span style="text-align: center; font-size: large; height: fit-content;" class="vrchatconfigelement">Tip: I reccomend that you do "${artistRaw}"</span>
+
+                    </div>
+                </div>
+
+
+                <div class="VRChatConfig">
+                    
+                    <div class="configinputarray vrchatconfigelement">
+                        <span style="text-align: center; font-size: x-large; height: fit-content;" class="vrchatconfigelement">The textbox below will change the output text of what gets shown ingame.</span>
+                        <span style="text-align: center; font-size: large; height: fit-content;" class="vrchatconfigelement">Tip: You can format your text with ${song} to get things like the song name</span>
+
+                        <div>
+                            <div style = "text-align: center; font-size: larger; margin-bottom: 10px;">Display text</div>
+                            <textarea type="text" id="inputbox" rows="1" class="VRChatTextarea"></textarea>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+
+
+            <div class = "OverlayLoadingStatus">
+
+                <div class="OverlayBar">
+                    <div class="OverlayLoadingText">Loading...</div>
+
+                    <div class="AppIDInput">
+                        <textarea type="text" rows="1" class="AppIDInputBox"></textarea>
+                        <button class="AppIDBtn">Submit</button>
+                    </div>
+                    <div class="col-3">
+                        <div class="snippet" data-title="dot-flashing">
+                          <div class="stage">
+                            <div class="dot-flashing"></div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <!--
+            <h1>I love headers</h1>
+            <button class="btn" type="submit">Buttons are cool</button>
+        -->
+        <!-- <img src="https://cdn.pixabay.com/photo/2015/07/30/11/05/pineapple-867245_960_720.jpg"> -->
+    </body>
+</html>

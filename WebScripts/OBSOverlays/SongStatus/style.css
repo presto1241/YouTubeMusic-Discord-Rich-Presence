@@ -1,0 +1,310 @@
+html {
+    height: 100%;
+} 
+
+body {
+
+    font-family: 'Quicksand Variant', sans-serif; 
+    background-color: #00000000;
+    color: #00000000;
+}
+
+#image{
+
+    
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bGDKsJ1uem8wUSsh1nxX5MG-qrqWAmU9qULlyLM&s) 50% 50% no-repeat;
+    background-size: cover;
+    opacity: 1;
+    width: 512px;
+    height: 512px;
+
+    display: inline-flex;
+    position: relative;
+    border-radius: 40px;
+
+
+}
+
+.bokahImage {
+
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3bGDKsJ1uem8wUSsh1nxX5MG-qrqWAmU9qULlyLM&s) 0% 0% repeat;
+    background-size: cover;
+    opacity: 1;
+    -webkit-mask-image: linear-gradient(to right, rgb(255, 255, 255), transparent); 
+    mask-image: linear-gradient (to right, rgb(255, 255, 255), transparent);
+
+    width: 1720px;
+    height: 512px;
+
+    filter: blur(50px);
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 140px;
+
+}
+
+
+
+
+.Song_info {
+    display: inline-block;
+    position: absolute;
+    top: 15%;
+
+    margin-left: 50px;
+}
+
+.Song_Text {
+    
+    position: relative;
+    
+    width: 1256px;
+    height: 150px;
+    
+    color: rgb(255, 255, 255);
+    font-size: var(--font-size, 7em);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.459);
+    opacity: 1;
+    white-space: nowrap;
+}
+
+.Song_Text > * {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.Song_Artist {
+    
+    position: relative;
+    
+    width: 1024px;
+    height: 100px;
+    
+    color: rgb(255, 255, 255);
+    font-size: var(--font-size, 6em);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.459);
+    opacity: 1;
+    white-space: nowrap;
+}
+
+.Song_Artist > * {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+#blockSeperator {
+    display: block; 
+    background-color: rgb(255, 255, 255); 
+    border-radius: 25px; 
+    width: 60em; 
+    height: 10px; 
+    margin-top: 2em; 
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+
+
+/*
+//Animations
+*/
+
+.text_fadein {
+    animation-duration: 1.2s;
+
+    animation-name: textfadein;
+
+    animation-fill-mode: forwards;
+}
+
+.text_fadeout {
+    animation-duration: 0.7s;
+
+    animation-name: textfadeout;
+
+    animation-fill-mode: forwards;
+}
+
+
+.bokahImageScroll {
+    animation-duration: 30s;
+
+    animation-name: loopingBlur;
+
+    animation-iteration-count: infinite;
+
+    animation-timing-function: linear;
+
+    animation-fill-mode: forwards;
+}
+
+
+.blockfadein {
+
+    animation-duration: 0.4s;
+
+    animation-name: linefadein;
+
+    animation-fill-mode: forwards;
+}
+
+
+.blockfadeout {
+
+    animation-duration: 0.4s;
+
+    animation-name: linefadeout;
+
+    animation-fill-mode: forwards;
+}
+
+
+
+.imagefadein {
+    animation-duration: 0.4s;
+
+    animation-name: imagefadein;
+
+    animation-timing-function: linear;
+
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+}
+
+.imagefadeout {
+    animation-duration: 0.4s;
+
+    animation-name: imagefadeout;
+
+    animation-timing-function: linear;
+
+    animation-iteration-count: 1;
+
+    animation-fill-mode: forwards;
+
+}
+
+
+
+
+
+
+
+
+@keyframes textfadein {
+    from {
+        margin-left: -0.5em;
+        opacity: 0;
+    }
+
+  
+    to {
+        margin-left: 0em;
+        opacity: 1;
+    }
+}
+
+@keyframes textfadeout {
+    from {
+        margin-left: 0em;
+        opacity: 1;
+    }
+
+  
+    to {
+        margin-left: -0.5em;
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+@keyframes imagefadein {
+    from {
+        opacity: 0;
+    }
+
+  
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes imagefadeout {
+    from {
+
+        opacity: 1;
+    }
+
+  
+    to {
+
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+@keyframes linefadein {
+    from {
+      width: 0em;
+    }
+
+  
+    to {
+      width: 60em;
+    }
+}
+
+@keyframes linefadeout {
+    from {
+        width: 60em;
+    }
+
+  
+    to {
+        width: 0em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes loopingBlur{
+
+    from {
+        background-position: 200% 200%;
+    }
+    
+    to {
+        background-position: 0% 0%;
+    }
+
+}

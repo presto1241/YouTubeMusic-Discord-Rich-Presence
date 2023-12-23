@@ -1,0 +1,12 @@
+{
+    "DiscordAppID": "",
+    "DiscordConfigValues": {
+      "SongInfo": "${song}",
+      "SongArtist": "${artistRaw}",
+      "enabled": false
+    },
+    "VRChatSongInfo": {
+      "value": "Listening to: ${song} by ${artist}",
+      "enabled": false
+    }
+  }

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+    <style type="text/css">
+
+    @font-face {
+        font-family: "Quicksand Variant";
+        src: url(https://fonts.gstatic.com/s/quicksand/v31/6xKtdSZaM9iE8KbpRA_hK1QN.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "ibmpc";
+        src: url("Minecraftia-Regular.woff") format("woff");
+    }
+
+    </style>
+
+
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>YoutubeMusic Stream overlay</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+        <script src="index.js"></script> 
+       <!-- <script src="audio.js"></script> -->
+    </head>
+
+    <body>
+
+        <div>
+            <div class="bokahImage"></div>
+            <!--<div style="display: block; width: auto; height: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; backdrop-filter: blur(10px);"></div>-->
+
+            <div style="position: absolute; left: 100px; top: 25%;">
+
+                <div id="image" class="Song_Image"></div>
+                
+                <div class="Song_info">
+
+                    <div class="Song_Text">
+                        <span>Waiting for song...</span>
+                    </div>
+
+                    <span id="blockSeperator" class="lineSeperator"></span>
+
+                    <div class="Song_Artist">
+                        <span>Waiting for artist...</span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    
+    </body>
+</html>

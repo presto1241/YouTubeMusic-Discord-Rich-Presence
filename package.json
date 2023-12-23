@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "discord-rich-presence": "0.0.8",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "opener": "^1.5.2",
+    "osc-js": "^2.4.0",
+    "ws": "^8.15.1"
   }
 }
