@@ -8,7 +8,7 @@ Paused: \
 <img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/RichPresenceExamplePaused.png" alt="alt text" width="300"/> 
 
 Config window: \
-<img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/ConfigPreview.png" alt="alt text" width="300"/> 
+<img src="https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/ConfigPreview.png" alt="alt text" width="700"/> 
 
 ![alt text](https://raw.githubusercontent.com/presto1241/YouTubeMusic-Discord-Rich-Presence/master/ReadMeAssets/TerminalExample.png) \
 Lol just realized the screenshot has a bug... All my fellas is made by frizk not the other person. I'll fix that if I come across it again...
@@ -34,7 +34,7 @@ Then you can get your application ID by copying it, located in general informati
 
 ### Step 5:
 In the config panel that just launched paste the ID from <b>Step 4:</b> into the text box and press `submit` <b>
-Press the button `Enable presence` and then click `Save changes`. Now you have discord presence enabled!
+Press the button `Enable status` and then click `Save changes`. Now you have discord presence enabled!
 
 ### Step 5
 Have fun :3
