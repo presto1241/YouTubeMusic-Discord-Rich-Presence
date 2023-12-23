@@ -62,6 +62,8 @@ var content = {
   timestamp: "0:00"
 };
 
+var lastUpdate = Date.now();
+
 
 //////
 //Initalize express as a variable.
@@ -135,6 +137,7 @@ KillOrSpawnProcesses();
 //////
 app.post("/", (request, response) => {
   content = request.body;
+  lastUpdate = Date.now();
   content.artist = content.artist.split("\n • \n");
   response.sendStatus(200);
   //console.log(request)
@@ -176,30 +179,43 @@ app.post("/", (request, response) => {
 });
 
 
-function UpdateConfig(content){
+function UpdateConfig(newConfig){
 
-  if (content.DiscordAppID != undefined){
+  //console.log(newConfig);
+  if (newConfig.DiscordAppID != undefined){
 
-    Savefile.DiscordAppID = content.DiscordAppID;
+    Savefile.DiscordAppID = newConfig.DiscordAppID;
 
   };
 
-  if (content.DiscordConfigValues != undefined){
+  if (newConfig.DiscordConfigValues != undefined){
 
-    Savefile.DiscordConfigValues = content.DiscordConfigValues;
+    Savefile.DiscordConfigValues = newConfig.DiscordConfigValues;
     
   };
 
-  if (content.VRChatSongInfo != undefined){
+  if (newConfig.VRChatSongInfo != undefined){
 
-    Savefile.VRChatSongInfo = content.VRChatSongInfo;
+    Savefile.VRChatSongInfo = newConfig.VRChatSongInfo;
     
   };
+
+  //console.log(Savefile);
 
   fs.writeFileSync(process.cwd() + "/config.json", JSON.stringify(Savefile, null, 2));
 
   KillOrSpawnProcesses();
 
+  let timestampOffset = Date.now() - lastUpdate;
+  let timestampFloat = timeToJSMS(content.timestamp, false);
+
+  let timestampOffsetstringConvert = UTCtimetoString( (timestampFloat + timestampOffset)/1000 );
+
+  content.timestamp = timestampOffsetstringConvert;
+
+  console.log(content);
+  WebsocketSendAllClients(content, "configupdate");
+  console.log("Updated config and sent the message");
 
 }
 
@@ -226,7 +242,7 @@ function WebsocketSendClient(content, type, client){
 //////
 //Helper function that converts the YoutubeMusic timecode string to a Javascript based unix timestamp.
 //////
-function timeToJSMS(time){
+function timeToJSMS(time, ifdate){
 
   let currentDate = Date.now();
   
@@ -247,7 +263,12 @@ function timeToJSMS(time){
   outputTime *= 1000;
   outputTime = Math.floor(outputTime);
 
-  return currentDate + outputTime;
+  if(ifdate){
+    return currentDate + outputTime;
+  }
+  else{
+    return outputTime;
+  }
 }
 
 
@@ -280,4 +301,24 @@ function KillOrSpawnProcesses(){
     }
   }
 
+}
+
+
+
+
+function UTCtimetoString(time){
+  if (time < 0) time = 0;
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(time / 86400);
+  //console.log("Diff ("+countDownTime+" - "+serverTime+"): " + seconds, "Days: " + days);
+  var hoursLeft = Math.floor((time) - (days * 86400));
+  var hours = Math.floor(hoursLeft / 3600);
+  var minutesLeft = Math.floor((hoursLeft) - (hours * 3600));
+  var minutes = Math.floor(minutesLeft / 60);
+  var remainingSeconds = Math.floor(time % 60);
+  //console.log($el.attr('id'), seconds, days, hours, hoursLeft, minutes, minutesLeft, remainingSeconds);
+  // Maybe padStart(2,'0')  on the remainingSeconds
+  // Write out the remaining time
+  //console.log(hours);
+  return (days ? days + "d " : '') + ((hours > 0) ? hours.toString().padStart(2, "0") + ":" : '') + ((hoursLeft || minutesLeft || true) ? minutes.toString().padStart(2, "0") + ":" : '') + (minutesLeft || remainingSeconds ? remainingSeconds.toString().padStart(2, "0") : '');
 }

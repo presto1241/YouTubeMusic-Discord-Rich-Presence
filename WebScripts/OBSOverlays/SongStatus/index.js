@@ -8,6 +8,23 @@ var StartingTime = Date.now();
 var songSwitchState = 0;
 var lastSong = "";
 
+var ConfigCache = {
+
+    "DiscordAppID": "",
+    "DiscordConfigValues": {
+      "SongInfo": "${song}",
+      "SongArtist": "${artistRaw}",
+      "enabled": false
+    },
+    "VRChatSongInfo": {
+      "value": "Listening to: ${song} by ${artist}",
+      "enabled": false
+    }
+    
+};
+var SongCache;
+const ws = new WebSocket('ws://127.0.0.1:52310');
+
 document.addEventListener("DOMContentLoaded", function(e) {
 
     Song_Title = document.getElementsByClassName("Song_Text")[0];
@@ -22,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     ready = true;
 });
 
-const ws = new WebSocket('ws://127.0.0.1:52310');
 
 function ImageAnimEnd(){
 
@@ -54,7 +70,7 @@ function LineSeperatorAnimEnd(){
         Song_Artist.children[0].innerText = content.artist[0].replace(/(\r\n|\n|\r)/gm,"");
         resize2fit(Song_Artist);
     
-        Song_Title.children[0].innerText = content.song;
+        Song_Title.children[0].innerText = ConfigCache.DiscordConfigValues.SongInfo.interpolate(SongCache);
         resize2fit(Song_Title);
 
 
@@ -69,7 +85,6 @@ function LineSeperatorAnimEnd(){
     }
 
     if (songSwitchState == 5){
-
 
         Song_Artist.classList.add("text_fadein");
         Song_Title.classList.add("text_fadein");
@@ -125,7 +140,35 @@ function TitleTextAnimEnd(){
 
 ws.onmessage = function(message){
     content = JSON.parse(message.data);
-    if (content.song == lastSong) return;
+    console.log(content);
+
+    if (!["data", "configupdate", "config"].includes(content.type)) { console.log("Made it here!"); return;}
+    
+    if (content.type == "config") {
+
+        ConfigCache = content;
+        Song_Title.children[0].innerText = ConfigCache.DiscordConfigValues.SongInfo.interpolate(SongCache);
+
+        return;
+    }
+
+    if (content.type == "data"){
+
+        SongCache = content;
+    }
+
+    if (content.song == lastSong) {
+
+        if (content.type == "configupdate")
+        {
+
+            ws.send(JSON.stringify({ type: "config" }));
+
+
+        }
+
+        return;
+    }
     lastSong = content.song;
 
     if (!ready) return;
@@ -141,7 +184,7 @@ ws.onmessage = function(message){
         Song_Artist.children[0].innerText = content.artist[0].replace(/(\r\n|\n|\r)/gm,"");
         resize2fit(Song_Artist);
     
-        Song_Title.children[0].innerText = content.song;
+        Song_Title.children[0].innerText = ConfigCache.DiscordConfigValues.SongInfo.interpolate(SongCache);
         resize2fit(Song_Title);
 
     }
@@ -174,3 +217,12 @@ function Update(){
 
 
 setInterval(Update, 60);
+
+
+String.prototype.interpolate = function(params) {
+    const names = Object.keys(params);
+    const vals = Object.values(params);
+    try{
+        return new Function(...names, `return \`${this}\`;`)(...vals);
+    }catch(e){ return this;}
+}

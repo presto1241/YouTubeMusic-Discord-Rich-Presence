@@ -35,11 +35,10 @@ ws.onmessage = function(message){
    let content = JSON.parse(message.data);
    Savefile = JSON.parse(ReadSavefile());
 
-   if(lastSong != content.song) 
-  {
+    if(lastSong == content.song || !["data", "configupdate"].includes(content.type)) return;
+
     lastSong = content.song;
     UpdateVRChat(content);
-  }
 
 }
 

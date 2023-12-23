@@ -287,12 +287,12 @@ function SubmitnewAppID(){
 
     if( ConfigCache == undefined) return;
 
-   ConfigCache.DiscordAppID = OverlayStatus.AppIDBox.value;
+    ConfigCache.DiscordAppID = OverlayStatus.AppIDBox.value;
 
-   OverlayStatus.Overlay.classList.remove("display");
+    OverlayStatus.Overlay.classList.remove("display");
 
-   ConfigCache.type = "setconfig";
-   ws.send(JSON.stringify(ConfigCache));
+    ConfigCache.type = "setconfig";
+    ws.send(JSON.stringify(ConfigCache));
 }
 
 

@@ -13,12 +13,14 @@ const ws = new WebSocket('ws://127.0.0.1:52310');
 
 ws.onmessage = function(message){
 
-   let content = JSON.parse(message.data);
-   Savefile = JSON.parse(ReadSavefile());
+    let content = JSON.parse(message.data);
+    Savefile = JSON.parse(ReadSavefile());
 
-   content.timeNow = Date.now();
-   content.timeMax = Date.now() +  timeToJSMS(content.timeMax.trim()) - timeToJSMS(content.timestamp.trim());
-   updateDiscord(content);
+    if (!["data", "configupdate"].includes(content.type)) return;
+
+    content.timeNow = Date.now();
+    content.timeMax = Date.now() +  timeToJSMS(content.timeMax.trim()) - timeToJSMS(content.timestamp.trim());
+    updateDiscord(content);
 }
 
 
