@@ -213,9 +213,7 @@ function UpdateConfig(newConfig){
 
   content.timestamp = timestampOffsetstringConvert;
 
-  console.log(content);
   WebsocketSendAllClients(content, "configupdate");
-  console.log("Updated config and sent the message");
 
 }
 
